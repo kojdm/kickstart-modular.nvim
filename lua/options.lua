@@ -10,7 +10,8 @@ vim.o.number = true
 -- vim.o.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
-vim.o.mouse = 'a'
+-- vim.o.mouse = 'a'
+vim.o.mouse = ''
 
 -- Don't show the mode, since it's already in the status line
 vim.o.showmode = false
@@ -34,7 +35,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Keep signcolumn on by default
-vim.o.signcolumn = 'yes'
+vim.o.signcolumn = 'auto'
 
 -- Decrease update time
 vim.o.updatetime = 250
@@ -44,7 +45,6 @@ vim.o.timeoutlen = 300
 
 -- Configure how new splits should be opened
 vim.o.splitright = true
-vim.o.splitbelow = true
 
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
@@ -60,8 +60,22 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 -- Preview substitutions live, as you type!
 vim.o.inccommand = 'split'
 
--- Show which line your cursor is on
-vim.o.cursorline = true
+-- Show which line + column your cursor is on
+-- Off by default, should only be visible on active buffer
+vim.o.cursorline = false
+vim.o.cursorcolumn = false
+vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter' }, {
+  callback = function()
+    vim.wo.cursorline = true
+    vim.wo.cursorcolumn = true
+  end,
+})
+vim.api.nvim_create_autocmd({ 'WinLeave', 'BufLeave' }, {
+  callback = function()
+    vim.wo.cursorline = false
+    vim.wo.cursorcolumn = false
+  end,
+})
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.o.scrolloff = 10
@@ -70,5 +84,8 @@ vim.o.scrolloff = 10
 -- instead raise a dialog asking if you wish to save the current file(s)
 -- See `:help 'confirm'`
 vim.o.confirm = true
+
+-- Set nowrap
+vim.o.wrap = false
 
 -- vim: ts=2 sts=2 sw=2 et

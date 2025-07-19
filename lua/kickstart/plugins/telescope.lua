@@ -56,6 +56,7 @@ return {
         --  All the info you're looking for is in `:help telescope.setup()`
         --
         defaults = {
+          layout_strategy = 'vertical',
           mappings = {
             i = {
               ['<C-j>'] = 'move_selection_next',

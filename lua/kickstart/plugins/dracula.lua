@@ -56,6 +56,10 @@ return {
       }
 
       vim.cmd.colorscheme 'dracula'
+
+      -- Set cursorline and cursorcolumn colors
+      vim.api.nvim_set_hl(0, 'CursorLine', { bg = '#44475A' })
+      vim.api.nvim_set_hl(0, 'CursorColumn', { bg = '#44475A' })
     end,
   },
 }

@@ -63,6 +63,10 @@ return {
               ['<C-k>'] = 'move_selection_previous',
               ['<C-u>'] = 'preview_scrolling_up',
               ['<C-d>'] = 'preview_scrolling_down',
+              ['<C-s><C-q>'] = function(p_bufnr)
+                require('telescope.actions').smart_send_to_qflist(p_bufnr)
+                vim.cmd 'cw'
+              end,
             },
           },
         },

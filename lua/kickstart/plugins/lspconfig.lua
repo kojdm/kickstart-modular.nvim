@@ -242,11 +242,11 @@ return {
         },
 
         -- Ruby
-        -- rubocop = {},
-        standardrb = {},
         ruby_lsp = {
           cmd = { vim.fn.expand '~/.asdf/shims/ruby-lsp' },
         },
+        -- Install rubocop or standardrb based on current project
+        [vim.fn.filereadable '.rubocop.yml' == 1 and 'rubocop' or 'standardrb'] = {},
       }
 
       ---@type MasonLspconfigSettings

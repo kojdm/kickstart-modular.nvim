@@ -247,6 +247,8 @@ return {
         },
         -- Install rubocop or standardrb based on current project
         [vim.fn.filereadable '.rubocop.yml' == 1 and 'rubocop' or 'standardrb'] = {},
+        -- HTML & ERB
+        herb_ls = {},
       }
 
       ---@type MasonLspconfigSettings

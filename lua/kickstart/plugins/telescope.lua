@@ -85,7 +85,13 @@ return {
               return { '--hidden' }
             end,
             mappings = {
-              i = { ['<C-f>'] = require('telescope.actions').to_fuzzy_refine },
+              i = {
+                ['<C-f>'] = require('telescope.actions').to_fuzzy_refine,
+                ['<C-s><C-q>'] = function(p_bufnr)
+                  require('telescope.actions').smart_send_to_qflist(p_bufnr)
+                  vim.cmd 'cw'
+                end,
+              },
             },
           },
           find_files = {

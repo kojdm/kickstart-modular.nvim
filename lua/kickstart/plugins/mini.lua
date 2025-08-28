@@ -26,9 +26,9 @@ return {
         use_icons = vim.g.have_nerd_font,
         content = {
           active = function()
-            local mode, mode_hl = MiniStatusline.section_mode { trunc_width = 99999 } -- force short output
-            local filename = MiniStatusline.section_filename { trunc_width = 99999 } -- force short output
-            local fileinfo = MiniStatusline.section_fileinfo { trunc_width = 99999 } -- force short output
+            local mode, mode_hl = MiniStatusline.section_mode { trunc_width = math.huge } -- force short output
+            local filename = MiniStatusline.section_filename { trunc_width = math.huge } -- force short output
+            local fileinfo = MiniStatusline.section_fileinfo { trunc_width = math.huge } -- force short output
             local location = MiniStatusline.section_location { trunc_width = 75 }
             local search = MiniStatusline.section_searchcount { trunc_width = 75 }
 
@@ -42,7 +42,7 @@ return {
             }
           end,
           inactive = function()
-            local filename = MiniStatusline.section_filename { trunc_width = 99999 } -- force short output
+            local filename = MiniStatusline.section_filename { trunc_width = math.huge } -- force short output
 
             return MiniStatusline.combine_groups {
               { hl = 'MiniStatuslineFilename', strings = { filename } },

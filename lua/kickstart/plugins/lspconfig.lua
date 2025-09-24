@@ -258,6 +258,9 @@ return {
         herb_ls = {
           filetypes = { 'html', 'eruby' },
         },
+
+        -- JS & TS
+        eslint = {},
       }
 
       ---@type MasonLspconfigSettings

@@ -56,4 +56,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- ':Gbl' - Git blame
 vim.api.nvim_create_user_command('Gbl', 'Git blame', { nargs = 0 })
 
+-- ':QQ' - Close all buffers
+vim.api.nvim_create_user_command('QQ', function()
+  if vim.fn.winnr '$' > 1 then
+    vim.cmd 'bufdo bd | only'
+  else
+    vim.cmd 'bufdo bd'
+  end
+end, {})
+
 -- vim: ts=2 sts=2 sw=2 et

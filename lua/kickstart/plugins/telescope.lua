@@ -80,7 +80,7 @@ return {
         },
         pickers = {
           live_grep = {
-            file_ignore_patterns = { 'node_modules', '.git', '.venv' },
+            file_ignore_patterns = { 'node_modules', '.git', '.venv', 'build', 'tmp' },
             additional_args = function(_)
               return { '--hidden' }
             end,
@@ -95,7 +95,7 @@ return {
             },
           },
           find_files = {
-            file_ignore_patterns = { 'node_modules', '.git', '.venv' },
+            file_ignore_patterns = { 'node_modules', '.git', '.venv', 'build', 'tmp' },
             hidden = true,
           },
         },
